@@ -1,0 +1,25 @@
+# Never commit secrets. The OpenAlex key lives only in your browser (localStorage), not in any file.
+# If you ever keep a key in a file for testing, it must match one of these names so Git ignores it:
+.env
+.env.*
+*.key
+secrets*
+keys.txt
+# local helper files (log/ai-log.md is your AI-use disclosure: keep it in the repo)
+backups/
+
+# --- added by the course kit: never on GitHub
+backups/
+.vercel/
+.env
+.env.*
+*.key
+guide-files/
+START-*.cmd
+AUTOPILOT-*.cmd
+START-*.command
+AUTOPILOT-*.command
+*.docx
+~$*
+.DS_Store
+Thumbs.db

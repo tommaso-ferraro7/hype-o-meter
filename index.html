@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My tool</title>
+<!--
+  STARTER for Hackathon 3 (Meta-science course, University of Innsbruck).
+  This page is only the frame: look, red error box, Reset button, takeaway box, methods box, chart drawing.
+  The tool itself is written by you and the AI in app.js. Files:
+    index.html   this frame (the AI may add text here, but must keep the element ids)
+    style.css    the look
+    ui.js        drawChart / renderCards / setTakeaway / setMethod / showError / showWarning  (do not edit)
+    oa-helper.js OA.yearly(...) = the safe OpenAlex call with timeout, cache and sample fallback (do not edit)
+    sample-data/ real numbers saved on 2026-11-15, so the page still works if OpenAlex is down or its free daily budget is used up
+    app.js       YOUR TOOL (start here)
+  Open it by double-clicking, or (better, same as the web) from the small local server: see AGENTS.md.
+-->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="tag" id="platform">Metaventory · meta-science tool</div>
+  <h1 id="title">My tool</h1>
+  <p id="question"></p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Settings</h2>
+    <button id="reset" class="reset">↺ Reset to start values</button>
+    <div class="presets" id="presets"></div>
+    <div class="preset-note" id="presetNote"></div>
+    <div id="controls"></div>
+    <div class="stack" style="margin-top:14px">
+      <label>Your OpenAlex key (optional)
+        <input id="apiKey" type="text" autocomplete="off" spellcheck="false" placeholder="paste your free key here"></label>
+      <button id="saveKey" class="reset">Save key (empty = use no key)</button>
+      <div class="help" style="font-size:12px;color:#57534e">Stays in this browser only (never in a file or on GitHub). With a key you get 10x the daily budget. Sign up free: openalex.org/signup</div>
+    </div>
+    <div class="status" id="status"></div>
+  </section>
+  <section>
+    <div id="messages"></div>
+    <div class="cards" id="cards"></div>
+    <div class="panel"><h2 id="chartTitle">Chart</h2><div id="chart"></div><div class="legend" id="legend"></div></div>
+    <div class="panel" style="margin-top:16px"><h2>Chart 2</h2><div id="chart2"></div><div class="legend" id="chart2Legend"></div></div>
+    <div class="takeaway" id="takeaway"></div>
+    <details open><summary>How this tool works</summary><div id="method"></div></details>
+  </section>
+</main>
+<footer>
+  <div id="footer"></div>
+</footer>
+<script src="sample-data/openalex-sample.js"></script>
+<script src="oa-helper.js"></script>
+<script src="ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
